@@ -1,8 +1,8 @@
 extends CenterContainer
 
 onready var itemTextureRect = $ItemTextureRect
-var emptyInventorySlot = preload("res://assets/items/EmptyInventorySlot.png")
-var inventory = preload("res://inventory/Inventory.tres")
+const emptyInventorySlot = preload("res://assets/items/EmptyInventorySlot.png")
+const inventory = preload("res://inventory/Inventory.tres")
 
 func display_item(item: Item):
 	if item is Item:
