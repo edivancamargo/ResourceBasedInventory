@@ -1,0 +1,2 @@
+# ResourceBasedInventory
+Resource Based Inventory
