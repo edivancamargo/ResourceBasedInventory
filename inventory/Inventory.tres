@@ -1,7 +1,10 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://inventory/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://items/DiamondRing.tres" type="Resource" id=2]
+[ext_resource path="res://items/Potion.tres" type="Resource" id=3]
+[ext_resource path="res://items/TallShield.tres" type="Resource" id=4]
 
 [resource]
 script = ExtResource( 1 )
-items = [ null, null, null, null, null, null, null, null, null ]
+items = [ ExtResource( 2 ), ExtResource( 3 ), null, ExtResource( 4 ), null, null, ExtResource( 3 ), ExtResource( 3 ), ExtResource( 2 ) ]
