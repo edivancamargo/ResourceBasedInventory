@@ -33,6 +33,13 @@ func can_drop_data(position, data):
 func drop_data(position, data):
 	var my_item_idx = get_index()
 	var my_item = inventory.items[my_item_idx]
-	inventory.swap_items(my_item_idx, data.item_idx)
-	inventory.set_item(my_item_idx, data.item)
+
+	# stack items
+	if my_item is Item and my_item.name == data.item.name:
+		my_item.amount += data.item.amount
+		inventory.emit_signal("items_changed", [my_item_idx])
+	else:
+		inventory.swap_items(my_item_idx, data.item_idx)
+		inventory.set_item(my_item_idx, data.item)
+
 	inventory.drag_data = null

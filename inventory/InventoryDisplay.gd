@@ -1,9 +1,20 @@
 extends GridContainer
 
+# For a real game this should be loaded globally as singleton because if Godot remove 
+# the parent scene this resource will be destroyed and when loaded again it won't be the same reference...
+# or load the inventory into a node that is attached to the root node.
 const inventory = preload("res://inventory/Inventory.tres")
 
 func _ready() -> void:
 	inventory.connect("items_changed", self, "on_items_changed")
+	print("before making items unique: ")
+	print(inventory.items)
+	
+	inventory.make_items_unique()
+	
+	print("after making items unique...")
+	print(inventory.items)
+
 	update_inventory_display()
 
 func update_inventory_display() -> void:
