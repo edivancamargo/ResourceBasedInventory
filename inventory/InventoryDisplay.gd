@@ -18,3 +18,9 @@ func update_inventory_slot_display(item_idx) -> void:
 func on_items_changed(item_indexes: Array):
 	for item_idx in item_indexes:
 		update_inventory_slot_display(item_idx)
+
+func _unhandled_input(event):
+	var releasingItem = event.is_action_released("ui_left_mouse") and inventory.drag_data is Dictionary
+
+	if releasingItem:
+		inventory.set_item(inventory.drag_data.item_idx, inventory.drag_data.item)

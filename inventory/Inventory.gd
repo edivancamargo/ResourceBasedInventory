@@ -3,6 +3,8 @@ class_name Inventory
 
 export(Array, Resource) var items = [null,null,null,null,null,null,null,null,null]
 
+var drag_data = null
+
 signal items_changed(indexes)
 
 func set_item(item_idx: int, item: Resource) -> Resource:
