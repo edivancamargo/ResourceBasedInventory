@@ -1,14 +1,17 @@
 extends CenterContainer
 
 onready var itemTextureRect = $ItemTextureRect
+onready var itemAmountLabel = $ItemTextureRect/ITemAmountLabel
 const emptyInventorySlot = preload("res://assets/items/EmptyInventorySlot.png")
 const inventory = preload("res://inventory/Inventory.tres")
 
 func display_item(item: Item):
 	if item is Item:
 		itemTextureRect.texture = item.texture
+		itemAmountLabel.text = str(item.amount)
 	else:
 		itemTextureRect.texture = emptyInventorySlot
+		itemAmountLabel.text = ""
 
 func get_drag_data(position):
 	var item_idx = get_index()
